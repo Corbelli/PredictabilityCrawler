@@ -1,0 +1,11 @@
+name = "LoadMarket"
+uuid = "03f08542-a0ea-11e9-2666-21b934060171"
+authors = ["jovyan "]
+version = "0.1.0"
+
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+RCall = "6f49c342-dc21-5d91-9882-a32aef131414"
+TableReader = "70df011a-6618-58d7-8e16-3cf9e384cb47"

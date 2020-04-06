@@ -1,0 +1,17 @@
+name = "Market"
+uuid = "e211be56-9b43-11e9-08e4-adb583b7a3a3"
+authors = ["Unknown "]
+version = "0.1.0"
+
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+GLM = "38e38edf-8417-5370-95a0-9cbb8c7f171a"
+Indicators = "70c4c096-89a6-5ec6-8236-da8aa3bd86fd"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+RollingFunctions = "b0e4dd01-7b14-53d8-9b45-175a3e362653"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+TableReader = "70df011a-6618-58d7-8e16-3cf9e384cb47"
+TimeSeries = "9e3dc215-6440-5c97-bce1-76c03772f85e"

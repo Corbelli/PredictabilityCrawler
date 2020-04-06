@@ -1,0 +1,10 @@
+# AWS 
+.pem
+
+# Caches
+**/.ipynb_checkpoints
+**/__pycache__
+**/.ipynb_checkpoints
+
+## Data Files
+**/data/
