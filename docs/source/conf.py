@@ -17,12 +17,14 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Previsibility Crawler'
+project = 'Predictability Crawler'
 copyright = '2020, Rodrigo Canto Corbelli'
 author = 'Rodrigo Canto Corbelli'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0.0'
+
+master_doc = 'index'
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,7 +33,6 @@ release = '1.0.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'recommonmark'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
