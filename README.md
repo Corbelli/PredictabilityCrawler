@@ -1,6 +1,6 @@
 # Predictability Crawler
 
-The Repository for the Predictability Crawler (P-Crawl) Julia code.
+This is the repository for the Predictability Crawler (P-Crawl) Julia code.
 
 The P-Crawl is a framework to train statistical learning models in datasets where
 a significant amount of samples have no predictable structure. 
