@@ -1,5 +1,5 @@
 # AWS 
-.pem
+*.pem
 
 # Caches
 **/.ipynb_checkpoints
