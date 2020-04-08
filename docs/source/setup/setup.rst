@@ -41,4 +41,58 @@ pretty fast afterwards. After the containers have start, type::
 
     make link 
 
-A link will appear in your terminal. Click the link or paste it in the browser.
+A link will appear in your terminal (if not, try the command again). Click the link or paste it in the browser
+to access the Jupyter Lab Interface.
+
+.. image:: img/jupyterlab.png
+   :align: center
+   :width: 800
+
+
+Dealing with Julia in Jupyter Lab
+---------------------------------
+
+In order to use the code with flexibility, some knowledge of `Julia <https://docs.julialang.org/en/v1/>`_  
+is required. The Jupyter Lab interface makes it possible to launch different file types and 
+executables, including terminal sessions.
+
+
+Terminal sessions can be usefull to download new julia packages, as well as mantain your current
+enviroment. if you opena a terminal session and type 'julia', the julia cli will appear.
+To enter julia package management enviroment just press ']'. From there, you can check the installed
+packages typing 'status'.
+
+.. image:: img/julia_pkg.png
+   :align: center
+   :width: 800
+
+
+If you need to install any further packages, just type::
+
+    add <package-name>
+
+To better understand the Julia package manager, `check the reference <https://docs.julialang.org/en/v1/stdlib/Pkg/index.html>`_.
+
+.. tip:: 
+   Julia Lab makes it easy to have multiple tabs open at the same time. Leave one 
+   open in the Julia pkg terminal to easily install the packages you will need.
+
+
+Code Considerations
+-------------------
+
+The Julia language works on top of a just-in-time (jit). This is what allows it
+to have `performance close to C language <https://julialang.org/benchmarks/>`_  
+while possesing higher level abstractions. Every time a module is loaded, it is pre-compiled.
+
+Currently, the PCrawl module is very heavy, and so may take a while to import and compile. 
+Some warnings may also appear, but they are ok to be ignored for now.
+
+The package Revise permits the module to reload during development, and should be imported before
+all others. With it, it is possible to alter the package code, save the file, and immediatly see
+the new implementation in the Notebook without having to compiling it again, which can become 
+cumbersome very quickly.
+
+Julia allows for math symbols such as :math:`\alpha` to be used as variables . 
+In the documentation, when a function's arguments are declared they will be represented 
+by the corresponding text (\\alpha), with the symbol (:math:`\alpha`) being used in the description. 

@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setting Up the Environment &mdash; Sphinx-Themes template 1 documentation</title>
+  <title>Setting Up the Environment &mdash; Predictability Crawler 1 documentation</title>
   
 
   
@@ -40,7 +40,8 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Sphinx-Themes template 1 documentation" href="../index.html"/>
+    <link rel="top" title="Predictability Crawler 1 documentation" href="../index.html"/>
+        <link rel="next" title="Simulating Random and Predictable Signals" href="../simulating/simulating.html"/>
         <link rel="prev" title="The Predictability Crawler Framework" href="../index.html"/> 
 
   
@@ -60,7 +61,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> Sphinx-Themes template
+            <a href="../index.html" class="icon icon-home"> Predictability Crawler
           
 
           
@@ -89,15 +90,19 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Use the code:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setting Up the Environment</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#code-base">Code Base</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#running-with-docker">Running with Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dealing-with-julia-in-jupyter-lab">Dealing with Julia in Jupyter Lab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-considerations">Code Considerations</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../simulating/simulating.html">Simulating Random and Predictable Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../models/models.html">Statistical Models for Series Forecasting</a></li>
 </ul>
 
             
@@ -112,7 +117,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Sphinx-Themes template</a>
+          <a href="../index.html">Predictability Crawler</a>
         
       </nav>
 
@@ -157,6 +162,8 @@
 
   
   <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../simulating/simulating.html" class="btn btn-neutral float-right" title="Simulating Random and Predictable Signals" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral" title="The Predictability Crawler Framework" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -204,7 +211,45 @@ pretty fast afterwards. After the containers have start, type:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">link</span>
 </pre></div>
 </div>
-<p>A link will appear in your terminal. Click the link or paste it in the browser.</p>
+<p>A link will appear in your terminal (if not, try the command again). Click the link or paste it in the browser
+to access the Jupyter Lab Interface.</p>
+<a class="reference internal image-reference" href="../_images/jupyterlab.png"><img alt="../_images/jupyterlab.png" class="align-center" src="../_images/jupyterlab.png" style="width: 800px;" /></a>
+</div>
+<div class="section" id="dealing-with-julia-in-jupyter-lab">
+<h3>Dealing with Julia in Jupyter Lab<a class="headerlink" href="#dealing-with-julia-in-jupyter-lab" title="Permalink to this headline">¶</a></h3>
+<p>In order to use the code with flexibility, some knowledge of <a class="reference external" href="https://docs.julialang.org/en/v1/">Julia</a>
+is required. The Jupyter Lab interface makes it possible to launch different file types and
+executables, including terminal sessions.</p>
+<p>Terminal sessions can be usefull to download new julia packages, as well as mantain your current
+enviroment. if you opena a terminal session and type ‘julia’, the julia cli will appear.
+To enter julia package management enviroment just press ‘]’. From there, you can check the installed
+packages typing ‘status’.</p>
+<a class="reference internal image-reference" href="../_images/julia_pkg.png"><img alt="../_images/julia_pkg.png" class="align-center" src="../_images/julia_pkg.png" style="width: 800px;" /></a>
+<p>If you need to install any further packages, just type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">add</span> <span class="o">&lt;</span><span class="n">package</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>To better understand the Julia package manager, <a class="reference external" href="https://docs.julialang.org/en/v1/stdlib/Pkg/index.html">check the reference</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Julia Lab makes it easy to have multiple tabs open at the same time. Leave one
+open in the Julia pkg terminal to easily install the packages you will need.</p>
+</div>
+</div>
+<div class="section" id="code-considerations">
+<h3>Code Considerations<a class="headerlink" href="#code-considerations" title="Permalink to this headline">¶</a></h3>
+<p>The Julia language works on top of a just-in-time (jit). This is what allows it
+to have <a class="reference external" href="https://julialang.org/benchmarks/">performance close to C language</a>
+while possesing higher level abstractions. Every time a module is loaded, it is pre-compiled.</p>
+<p>Currently, the PCrawl module is very heavy, and so may take a while to import and compile.
+Some warnings may also appear, but they are ok to be ignored for now.</p>
+<p>The package Revise permits the module to reload during development, and should be imported before
+all others. With it, it is possible to alter the package code, save the file, and immediatly see
+the new implementation in the Notebook without having to compiling it again, which can become
+cumbersome very quickly.</p>
+<p>Julia allows for math symbols such as <span class="math notranslate nohighlight">\(\alpha\)</span> to be used as variables .
+In the documentation, when a function’s arguments are declared they will be represented
+by the corresponding text (\alpha), with the symbol (<span class="math notranslate nohighlight">\(\alpha\)</span>) being used in the description.</p>
 </div>
 </div>
 </div>
@@ -219,6 +264,8 @@ pretty fast afterwards. After the containers have start, type:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../simulating/simulating.html" class="btn btn-neutral float-right" title="Simulating Random and Predictable Signals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
       
         <a href="../index.html" class="btn btn-neutral" title="The Predictability Crawler Framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
@@ -229,7 +276,7 @@ pretty fast afterwards. After the containers have start, type:</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, sphinx-themes.org.
+        &copy; Copyright 2020, rodrigocorbelli@gmail.com.
 
     </p>
   </div>
@@ -263,6 +310,7 @@ pretty fast afterwards. After the containers have start, type:</p>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script type="text/javascript" src="../_static/jquery.fancybox.min.js"></script>
 
   

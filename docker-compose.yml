@@ -4,19 +4,15 @@ services:
   jupyter:
     image: predictability-crawler
     build: 
-      context: docker/
+      context: work/
+      dockerfile: ../Dockerfile
     volumes:
       - ./work/:/home/jovyan/work/
-      - julia:/opt/julia/
+      - ./data/:/home/jovyan/work/data/
     ports:
       - 8888:8888
     environment:
      - JULIA_NUM_THREADS=100
-    #  - GRANT_SUDO=yes
+     - NO_BROWSER=yes
      - JUPYTER_ENABLE_LAB=yes
      - COLUMNS:20
-    # user: root
-
-
-volumes:
-  julia:

@@ -25,3 +25,6 @@ server-evol:
 
 link:
 	docker-compose exec jupyter jupyter notebook list
+
+rm-untitled:
+	rm work/Untitled*

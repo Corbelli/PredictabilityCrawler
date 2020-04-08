@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The Predictability Crawler Framework &mdash; Sphinx-Themes template 1 documentation</title>
+  <title>The Predictability Crawler Framework &mdash; Predictability Crawler 1 documentation</title>
   
 
   
@@ -40,7 +40,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Sphinx-Themes template 1 documentation" href="#"/>
+    <link rel="top" title="Predictability Crawler 1 documentation" href="#"/>
         <link rel="next" title="Setting Up the Environment" href="setup/setup.html"/> 
 
   
@@ -60,7 +60,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> Sphinx-Themes template
+            <a href="#" class="icon icon-home"> Predictability Crawler
           
 
           
@@ -92,6 +92,9 @@
               <p class="caption"><span class="caption-text">Use the code:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="setup/setup.html">Setting Up the Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulating/simulating.html">Simulating Random and Predictable Signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models/models.html">Statistical Models for Series Forecasting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scoringfunction/scoringfunction.html">Predictability Scoring Function</a></li>
 </ul>
 
             
@@ -106,7 +109,7 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Sphinx-Themes template</a>
+          <a href="#">Predictability Crawler</a>
         
       </nav>
 
@@ -166,7 +169,7 @@
 <h1>The Predictability Crawler Framework<a class="headerlink" href="#the-predictability-crawler-framework" title="Permalink to this headline">¶</a></h1>
 <p>This is the documentation for the Julia code of the Predictability Crawler Framework.
 The Framework is a general approach to adapt Supervised Machine Learning to scenarios where
-a significant portion of the data has no structure at all. It first example application was
+a significant portion of the data has no structure at all. It’s first example application was
 in to study the predictable regimes in the Stock Market.</p>
 <p>The links to the corresponding scientific materiasl are:</p>
 <ul class="simple">
@@ -178,6 +181,24 @@ in to study the predictable regimes in the Stock Market.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="setup/setup.html">Setting Up the Environment</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="setup/setup.html#code-base">Code Base</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simulating/simulating.html">Simulating Random and Predictable Signals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simulating/simulating.html#simulated-signals-reference">Simulated Signals Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models/models.html">Statistical Models for Series Forecasting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models/models.html#preparing-feature-target-matrices">Preparing Feature &amp; Target Matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/models.html#statistical-learning-models">Statistical Learning Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models/models.html#putting-it-all-together">Putting it all Together</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scoringfunction/scoringfunction.html">Predictability Scoring Function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scoringfunction/scoringfunction.html#the-scoring-function-agorithm">The Scoring Function Agorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scoringfunction/scoringfunction.html#scoring-function-visualization">Scoring Function Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scoringfunction/scoringfunction.html#comparing-score-functions">Comparing Score Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scoringfunction/scoringfunction.html#dataset-structure-inference">Dataset Structure Inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scoringfunction/scoringfunction.html#score-function-signals-reference">Score Function Signals Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -204,7 +225,7 @@ in to study the predictable regimes in the Stock Market.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, sphinx-themes.org.
+        &copy; Copyright 2020, rodrigocorbelli@gmail.com.
 
     </p>
   </div>
@@ -238,6 +259,7 @@ in to study the predictable regimes in the Stock Market.</p>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
       <script type="text/javascript" src="_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script type="text/javascript" src="_static/jquery.fancybox.min.js"></script>
 
   

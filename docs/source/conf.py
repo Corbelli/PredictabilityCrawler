@@ -7,9 +7,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Sphinx-Themes template'
-copyright = '2018, sphinx-themes.org'
-author = 'sphinx-themes.org'
+project = 'Predictability Crawler'
+copyright = '2020, rodrigocorbelli@gmail.com'
+author = 'Rodrigo Canto Corbelli'
 
 # The short X.Y version
 version = ''

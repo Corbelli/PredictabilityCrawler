@@ -3,7 +3,7 @@ The Predictability Crawler Framework
 
 This is the documentation for the Julia code of the Predictability Crawler Framework.
 The Framework is a general approach to adapt Supervised Machine Learning to scenarios where
-a significant portion of the data has no structure at all. It first example application was
+a significant portion of the data has no structure at all. It's first example application was
 in to study the predictable regimes in the Stock Market.
 
 The links to the corresponding scientific materiasl are:
@@ -17,6 +17,9 @@ The links to the corresponding scientific materiasl are:
    :caption: Use the code:
 
    setup/setup
+   simulating/simulating
+   models/models
+   scoringfunction/scoringfunction
 
 
 .. Indices and tables

@@ -1,0 +1,348 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Simulating Random and Predictable Signals &mdash; Predictability Crawler 1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/jquery.fancybox.min.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/glpi.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Predictability Crawler 1 documentation" href="../index.html"/>
+        <link rel="next" title="Statistical Models for Series Forecasting" href="../models/models.html"/>
+        <link rel="prev" title="Setting Up the Environment" href="../setup/setup.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Predictability Crawler
+          
+
+          
+          </a>
+
+          
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Use the code:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../setup/setup.html">Setting Up the Environment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Simulating Random and Predictable Signals</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simulated-signals-reference">Simulated Signals Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../models/models.html">Statistical Models for Series Forecasting</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Predictability Crawler</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Simulating Random and Predictable Signals</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/simulating/simulating.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../models/models.html" class="btn btn-neutral float-right" title="Statistical Models for Series Forecasting" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../setup/setup.html" class="btn btn-neutral" title="Setting Up the Environment" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="simulating-random-and-predictable-signals">
+<h1>Simulating Random and Predictable Signals<a class="headerlink" href="#simulating-random-and-predictable-signals" title="Permalink to this headline">¶</a></h1>
+<p>The PCrawl library comes with functions to simulate simple predictable and
+unpredictable patterns. The function to simulate random noise and ar1 innovations
+are respectivly wn and ar1, and are avaiable once the library has been imported.
+They can be combined in the same expression to generate a simulation with both
+predictable and unpredictable patterns, and output the simulated signal togheter
+with a reference signal that is 1 for predictable samples and 0 otherwise.
+An example utilization would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">PCrawl</span>
+
+<span class="n">simulation</span> <span class="o">=</span> <span class="p">[</span><span class="n">wn</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="n">ar1</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="n">wn</span><span class="p">(</span><span class="mi">200</span><span class="p">)]</span>
+<span class="n">signal</span> <span class="o">=</span> <span class="n">simulation</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">reference</span> <span class="o">=</span> <span class="n">simulation</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>If the signals and reference series are plotted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pty</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">pty</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Simulated Signal&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/signal.png"><img alt="../_images/signal.png" class="align-center" src="../_images/signal.png" style="width: 600px;" /></a>
+<p>The function plot_predictability can be used to combine the two, highlighting
+the predictable periodos in the series:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_predcitability</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">reference</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Predictable Periods&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/predictable_periods.png"><img alt="../_images/predictable_periods.png" class="align-center" src="../_images/predictable_periods.png" style="width: 600px;" /></a>
+<p>This example can be found in the examples/SimulatingSignals.ipynb file.</p>
+<div class="section" id="simulated-signals-reference">
+<h2>Simulated Signals Reference<a class="headerlink" href="#simulated-signals-reference" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="wn">
+<code class="sig-name descname">wn</code><span class="sig-paren">(</span><em class="sig-param">nr_samples::Int64</em><span class="optional">[</span>, <em class="sig-param">\sigma=2</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#wn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a series of random observation from a zero-mean Gaussian distribution.
+Arguments:</p>
+<ul class="simple">
+<li><p>nr_samples = Number of samples in the simulation</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span>  = The variance of the Gaussian distribution</p></li>
+</ul>
+<p>Returns a [nr_samples, 2] vector, where the first column is the simulated signal
+and the second column is a reference signal of 0s, indicating non-predictability.
+Location : Utils/simulate.jl</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="wn2">
+<code class="sig-name descname">wn2</code><span class="sig-paren">(</span><em class="sig-param">nr_samples::Int64</em><span class="optional">[</span>, <em class="sig-param">bound=4</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#wn2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a series of random observation from a zero-mean Uniform distribution.
+Arguments:</p>
+<ul class="simple">
+<li><p>nr_samples = Number of samples in the simulation</p></li>
+<li><p>bound  = The value for the upper and lower bound of the Uniform function</p></li>
+</ul>
+<p>Returns a [nr_samples, 2] vector, where the first column is the simulated signal
+and the second column is a reference signal of 0s, indicating non-predictability.
+Location : Utils/simulate.jl</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ar1">
+<code class="sig-name descname">ar1</code><span class="sig-paren">(</span><em class="sig-param">nr_samples::Int64</em><span class="optional">[</span>, <em class="sig-param">\phi=.7</em>, <em class="sig-param">\sigma=2</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#ar1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a series of random observation from the AR1 process.</p>
+<p><span class="math notranslate nohighlight">\(y_{t} = y_{t-1} * \phi + \eta_{t}\)</span></p>
+<p>Where <span class="math notranslate nohighlight">\(\phi\)</span> is the fist lag coefficient and <span class="math notranslate nohighlight">\(\sigma\)</span> is the normal
+innovations variance.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><p>nr_samples = Number of samples in the simulation</p></li>
+<li><p>:<span class="math notranslate nohighlight">\(\phi\)</span>  = Number of samples in the simulation</p></li>
+<li><p>:<span class="math notranslate nohighlight">\(\eta\)</span>  = Variances for the zero-mean normal innovations <span class="math notranslate nohighlight">\(\eta_{t}\)</span></p></li>
+</ul>
+<p>Returns a [nr_samples, 2] vector, where the first column is the simulated signal
+and the second column is a reference signal of 1s, indicating predictability.
+Location : Utils/simulate.jl</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="plot_predictability">
+<code class="sig-name descname">plot_predictability</code><span class="sig-paren">(</span><em class="sig-param">signal</em>, <em class="sig-param">reference</em><span class="optional">[</span>, <em class="sig-param">title=nothing</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#plot_predictability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the signal highlighting the periods where the reference mark a predictable pattern.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><p>signal = The time-series to be plotted</p></li>
+<li><p>reference  = A boolean vector (or of 0s and 1s) determining the predictability of each sample</p></li>
+<li><p>title = The title of the plot.</p></li>
+</ul>
+<p>Returns time-series plot of the series with the highlighted predictable zones. If no title is provided,
+the title is just the coverage of the reference (percentage of predicatable samples).
+Location : Utils/visualization.jl</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../models/models.html" class="btn btn-neutral float-right" title="Statistical Models for Series Forecasting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../setup/setup.html" class="btn btn-neutral" title="Setting Up the Environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, rodrigocorbelli@gmail.com.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="../_static/jquery.fancybox.min.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript">
+    $(function(){
+      $('.image-reference').fancybox();
+    })
+  </script>
+
+</body>
+</html>
