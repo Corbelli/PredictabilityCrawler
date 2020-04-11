@@ -1,4 +1,4 @@
-using .Learning: Transform, fit_apply, idtransform
+using .Learning: Transform, fit_apply!, idtransform
 using ..PCrawl.Utils: kfold
 using Statistics
 
